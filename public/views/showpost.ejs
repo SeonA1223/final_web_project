@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/showpost.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/showpost.js"></script>
+  <title> True Trip </title>
+  </head>
+<body>
+  <div id= but_loc>
+    <button onclick="goback()">뒤로가기</button>
+    <button onclick="deletepost(<%=info.post_idx%>)">글삭제</button>
+</div>
+    <h1><%=info.post_title%></h1>
+    <div id = "wrap">
+
+    <img src="data:image/jpeg;base64,<%=info.post_picture%>" style="width:600px;height:400px">
+
+    <div id="cont_wrap">
+  <p id="int_contents"><h2><%=info.post_content%></h2></p>
+    </div>
+  </div>
+    <p></p>
+    <h3 style="padding:10px;"><button id="good_but">좋아요</button> <span id = "likecount"><%=info.post_like_count%></span></h3>
+    <form method = "post" action = "/newcomment">
+    <div>
+
+
+       <input id = "pid" name="pid" type="hidden" value="<%=info.post_idx%>">
+    <table id="write_com">
+      <tr>
+        <th><textarea name="comment" rows="2" cols="200" placeholder="댓글을 작성하시오." style="margin:10px; width:815px; height:82px; resize:none;" required></textarea></th>
+        <th><button id="comment" >작성</button></th>
+      </tr>
+    </table>
+  </div>
+  </form>
+        <table id="comments">
+      <tr>
+        <th>id</th>
+        <th>댓글내용</th>
+      </tr>
+      <%var i = 0%>
+      <%for(i; i < comments.length; i++) {%>
+      <tr>
+        <td><%=comments[i].user_id%></td>
+        <td><%=comments[i].comment_content%></td>
+      </tr>
+      <%}%>
+    </table>
+  </body>
+  </html>

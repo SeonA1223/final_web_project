@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/ttcss.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/ttjs.js"></script>
+	<title> True Trip </title>
+</head>
+
+<body>
+
+	<input type="hidden" id="cat" value="">
+
+	<section id="Header">
+		<div id="Logo">
+				<img id="photo_size" src="photo\main_photo\TTlogo.png">
+			</a>
+		</div>
+		<div id="Login">
+			<ul class="navbar-nav ml-auto">
+				<%if(!login){%>
+				<li class="login-item">
+					<button class="login-link" onclick="login_page()">로그인</button>
+				</li>
+				<li class="login-item">
+					<button class="login-link" onclick="signup_page()">회원가입</button>
+				</li>
+				<%}%>
+				<%if(login){%>
+					<li class="login-item">
+						<button class="login-link" onclick="login_page()"><%=userid%></button>
+					</li>
+					<li class="login-item">
+						<button class="login-link" onclick="logout()">로그아웃</button>
+					</li>
+					<li class="login-item">
+					<button id="upload_but">게시글 추가</button>
+				</li>
+					<div id="modal" class="modal">
+						<div id="modal_content" class="modal-content">
+							<span class="close">×</span>
+						<form method="post", action="/upload" enctype="multipart/form-data">
+							<label><b>Title</b></label>
+							<input type="text" id="title" name="title" placeholder="Enter the title" required>
+							<p style="width:400px;"></P>
+
+							<label><b>Select</b></label>
+							<p style="width:400px;"></P>
+								<input type="radio" name="cat1" value="movie">movie
+								<input type="radio" name="cat1" value="music">music
+								<input type="radio"  name="cat1" value="book">book
+
+								<p style="width:400px;"></P>
+
+								<input type="radio" name="cat2" value="America">America
+								<input type="radio" name="cat2" value="Asia">Asia
+								<input type="radio" name="cat2" value="Europe">Europe
+								<input type="radio" name="cat2" value="Else">Else
+
+								<p style="width:400px;"></P>
+
+							<label><b>Contents</b></label>
+							<p style="width:400px;"></P>
+							<textarea name = "content" rows="4" cols="70" style="resize:none;width:400px;" placeholder="내용을 작성하세요."></textarea>
+							<p style="width:400px;"></P>
+
+							<label><b>Image</b></label>
+							<input type="file" name="myFile" id="upload_img" required>
+							<p style="width:400px;"></P>
+
+							<button type="submit" id="post_submit">UPLOAD</button>
+							</form>
+										</div>
+						</div>
+					</div>
+				</div>
+				<%}%>
+			</ul>
+	</section>
+
+
+	<div class="container">
+		<button id="but_movie">movie</button>
+		<button id="but_music">music</button>
+		<button id="but_book">book</button>
+		<div class="dropdown">
+			<button class="dropbtn" onclick="myFunction()">Site</button>
+			<div class="dropdown-content" id="myDropdown">
+				<a href="https://www.youtube.com/">Youtube</a>
+				<a href="https://www.kyobobook.co.kr/">kyobobook</a>
+				<a href="https://www.melon.com/">Melon</a>
+			</div>
+		</div>
+	</div>
+
+	<section id="BoxOne">
+		<div id="posts">
+			<img class="Slides" src="photo\main_photo\MainRec.png" id="banners">
+		</div>
+
+		<div class="nav" id="movie">
+			<div class="map_select" id="movie_mselect">
+				<img class="map_img" src="photo\main_photo\map.png">
+				<button type="button" class="map_but" id="map_asia_but">Asia</button>
+				<button type="button" class="map_but" id="map_eur_but">Europe</button>
+				<button type="button" class="map_but" id="map_ame_but">America</button>
+				<button type="button" class="map_but" id="map_else_but">else</button>
+			</div>
+			<div id = "postview">
+
+			</div>
+			<div id = "offset">
+
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

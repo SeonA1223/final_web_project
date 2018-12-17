@@ -1,0 +1,55 @@
+<!--회원가입할 창 띄우기-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/servicecss.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="js/service.js"></script>
+  <title> True Trip </title>
+</head>
+
+<body>
+
+  <div id="signup">
+    <div id="signup_create">
+
+        <div class="container">
+          <h1>Sign Up</h1>
+          <p>Please fill in this form to create an account.</p>
+          <form method="post" action="/signup">
+          <table>
+            <tr>
+          <td><label id="empty_id" for="id"><b>ID</b></label></td>
+          <td><input type="id" placeholder="Enter ID" name="id" id="id" required></td>
+          <td><button id="check_overId" >아이디 중복 체크</button></td>
+        </tr>
+        <tr>
+        <td>  <label for="psw"><b>Password</b></label> </td>
+        <td>  <input type="psw" placeholder="Enter Password" name="psw" required> </td>
+      </tr>
+<p></p>
+        <tr>
+          <td><label for="nname"><b>Nickname</b></label></td>
+          <td><input type="nname" placeholder="Enter Nickname" name="nname" id="nname" required></td>
+          <td><button id="check_overNn">닉네임 중복 체크</button></td>
+        </tr>
+<p></p>
+        <tr >
+          <td colspan = "3"><button type="submit" id="submit"><strong>Create Account</strong></button></td>
+        </tr>
+        </form>
+        </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!--
+//js check_empty 함수
+//나중에 js, server, db 해야할 때, 로그인, 회원가입을 하면 다른 페이지로 이동하게끔 만들기
+//로그인 -> main화면 회원가입 -> 로그인화면
+-->
